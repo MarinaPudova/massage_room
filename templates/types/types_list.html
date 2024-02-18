@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Виды массажа
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+    <h2>У нас представлено {{types.count}} типов массажа, которые Вы можете попробовать</h2>
+    <form method="get" action="{% url 'site_info_about'%}">
+        <button class="add_button">Добавить</button>
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th>Наименование услуги</th>
+
+        </tr>
+        {% for elem in types %}
+            <tr>
+                <td><a href="{%url 'types-detail' elem.id %}">{{elem.name}}</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% block content %}
+    {% if master.comments.all %}
+        <h2> Отзывы о мастере:</h2>
+       <div class="btn-group">
+              <form method="post" action="{% url 'comment-create' master.id%}">
+                {% csrf_token %}
+                <button class="add_button">Написать отзыв</button>
+            </form>
+       </div>
+
+        <table width=70% border=1px>
+            {% for comment in master.comments.all %}
+                <tr bgcolor="teal" style="color: white border-radius:10px">
+                    <th>{{ comment.created_at }}</th>
+                    <th>{{ comment.rating }}</th>
+                    <th>{{ comment.content }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

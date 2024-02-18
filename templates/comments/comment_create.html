@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Оставить комментарий
+{% endblock %}
+
+{% block content %}
+    <h2>Ваш комментарий о мастере {{master_url.id}} </h2>
+    <form method="post" action="{% url 'comment-create' master_url.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="background:Moccasin;border-radius:10px;border:2px">Отправить комментарий</button>
+    </form>
+{% endblock %}

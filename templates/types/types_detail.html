@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Информация
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    {% if type %}
+        <h2> Информация об услуге "{{ type.name }}"</h2>
+        <br>
+        <br>
+        <table>
+            <tr>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Стоимость</th>
+            </tr>
+            <tr>
+                <td>{{ type.name }}</td>
+                <td>{{ type.description }}</td>
+                <td>{{ type.cost }}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+
+<!--        {% include "comments/comment_detail.html"%}-->
+    {% else %}
+        <h1>NOT FOUND</h1>
+    {% endif %}
+
+{% endblock %}

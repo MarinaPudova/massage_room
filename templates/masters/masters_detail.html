@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Подробности
+{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    {% if master %}
+        <h2> Полная информация о мастере {{master}}</h2>
+        <br>
+        <br>
+        <table>
+            <tr>
+                <th>Мастер</th>
+                <th>Рейтинг</th>
+                <th>О мастере</th>
+                <th>Типы массажа</th>
+            </tr>
+            <tr>
+                <td>{{ master }}</td>
+                <td>{{ master.master_rating }}</td>
+                <td>{{ master.about_master }}</td>
+                <td>
+                    {% if master.master_types.all %}
+                        {% for type in master.master_types.all %}
+                            <li>{{ type.name }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <p> уточняйте у администратора</p>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <br>
+        <br>
+
+        <h2>Количество отзывов: {{master.comments.count}}</h2>
+        {% include "comments/comment_detail.html"%}
+    {% else %}
+        <h1>NOT FOUND</h1>
+    {% endif %}
+
+{% endblock %}
