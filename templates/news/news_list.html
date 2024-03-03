@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Новости
+{% endblock %}
+
+{% block content %}
+    <br>
+    <table>
+        <tr>
+            <th>Foto</th>
+            <th>Master's Name</th>
+            <th>BLA-BLA-BLA</th>
+        </tr>
+        {% for news_item in news %}
+            <tr>
+                <td><a>{{news_item.news_title}}</a></td>
+                <td><a>{{news_item.news_content}}</a></td>
+                <td><a>{{news_item.news_date|date:"d.m.Y"}}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

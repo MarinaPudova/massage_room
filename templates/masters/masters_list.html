@@ -6,8 +6,6 @@
 
 {% block content %}
 <br>
-<br>
-<br>
     <h2>У нас работает {{masters.count}} лучших мастеров города</h2>
     <form method="get" action="{% url 'site_info_about'%}">
         <button class="add_button">записаться</button>
@@ -15,11 +13,19 @@
     <br>
     <table>
         <tr>
+            <th>Foto</th>
             <th>Master's Name</th>
             <th>BLA-BLA-BLA</th>
         </tr>
         {% for elem in masters %}
             <tr>
+                <td>
+                    {% if elem.master_foto %}
+                        <img src="{{elem.master_foto.url}}" alt="">
+                    {% else %}
+                        <h4> No Photo</h4>
+                    {% endif %}
+                </td>
                 <td><a href="{%url 'masters-detail' elem.id %}">{{elem.name}}</a></td>
                 <td><a>{{elem.last_name}}</a></td>
             </tr>

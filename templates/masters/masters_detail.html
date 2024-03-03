@@ -6,41 +6,41 @@
 
 {% block content %}
     <br>
-    <br>
+    <form method="get" action="{% url 'masters-list'%}">
+        <button class="nav_button"><< к списку мастеров</button>
+    </form>
     <br>
     {% if master %}
-        <h2> Полная информация о мастере {{master}}</h2>
+        <h2> {{master}}</h2>
         <br>
-        <br>
-        <table>
-            <tr>
-                <th>Мастер</th>
-                <th>Рейтинг</th>
-                <th>О мастере</th>
-                <th>Типы массажа</th>
-            </tr>
-            <tr>
-                <td>{{ master }}</td>
-                <td>{{ master.master_rating }}</td>
-                <td>{{ master.about_master }}</td>
-                <td>
-                    {% if master.master_types.all %}
+        <div class="banner">
+            <div class="pic">
+                {% if master.master_foto %}
+                    <img src="{{master.master_foto.url}}" alt="">
+                {% else %}
+                    <h4> No Photo</h4>
+                {% endif %}
+            </div>
+            <div class="text">
+                <p><span class="bold_title">Рейтинг: </span>{{master.master_rating}}</p>
+                <p><span class="bold_title">О мастере:</span></p>
+                <p>{{master.about_master}}</p>
+                <p><span class="bold_title">Виды массажа:</span></p>
+                {% if master.master_types.all %}
+                    <ul>
                         {% for type in master.master_types.all %}
-                            <li>{{ type.name }}</li>
+                            <li>{{type.name}}</li>
                         {% endfor %}
-                    {% else %}
-                        <p> уточняйте у администратора</p>
-                    {% endif %}
-                </td>
-            </tr>
-        </table>
+                    </ul>
+                {% else %}
+                    <span> уточняйте у администратора</span>
+                {% endif %}
+            </div>
+        </div>
         <br>
-        <br>
-
         <h2>Количество отзывов: {{master.comments.count}}</h2>
         {% include "comments/comment_detail.html"%}
     {% else %}
         <h1>NOT FOUND</h1>
     {% endif %}
-
 {% endblock %}

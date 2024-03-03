@@ -11,6 +11,8 @@ class MassageTypesListView(generic.ListView):
     model = MassageType
     template_name = 'types/types_list.html'
     context_object_name = 'types'
+    ordering = 'name'
+    # paginate_by = 4
 
 
 class MassageTypesDetailView(generic.DetailView):

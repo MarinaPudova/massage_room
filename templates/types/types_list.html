@@ -5,24 +5,37 @@
 {% endblock %}
 
 {% block content %}
-<br>
-<br>
-<br>
+    <br>
     <h2>У нас представлено {{types.count}} типов массажа, которые Вы можете попробовать</h2>
-    <form method="get" action="{% url 'site_info_about'%}">
-        <button class="add_button">Добавить</button>
+    <br>
+    <form method="get" action="{% url 'types-list'%}">
+        <button class="nav_button"><< к списку услуг</button>
     </form>
     <br>
-    <table>
-        <tr>
-            <th>Наименование услуги</th>
-
-        </tr>
+    {% if types %}
+        <br>
         {% for elem in types %}
-            <tr>
-                <td><a href="{%url 'types-detail' elem.id %}">{{elem.name}}</a></td>
+            <div class="banner_mini">
 
-            </tr>
+                <div class="pic">
+                    {% if elem.massage_cover %}
+                        <img class="img_mini" src="{{elem.massage_cover.url}}" alt="">
+                    {% else %}
+                        <h4> No Photo</h4>
+                    {% endif %}
+                </div>
+
+                <div class="text">
+                    <p><span class="bold_title">{{elem.name}}</span></p>
+                    <p><span class="bold_title">Стоимость: </span>{{elem.cost}} BYN.</p>
+                </div>
+
+                <form method="get" action="{% url 'types-detail' elem.id %}">
+                    <button class="detail_button">подробнее >></button>
+                </form>
+
+            </div>
+            <br>
         {% endfor %}
-    </table>
+    {% endif %}
 {% endblock %}

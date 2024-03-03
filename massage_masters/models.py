@@ -15,7 +15,7 @@ class MassageMaster(models.Model):
     master_experience = models.IntegerField()
     master_rating = models.FloatField(null=False, validators=[MinValueValidator(0.), MaxValueValidator(5.)])
     is_working = models.BooleanField(default=True)
-    # master_foto = models.ImageField(upload_to='masters/', blank=True, null=True)
+    master_foto = models.ImageField(upload_to='masters/', blank=True, null=True)
     master_types = models.ManyToManyField(MassageType, related_name="types", through="MasterType")
 
     def __str__(self):

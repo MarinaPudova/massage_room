@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Подробности
+{% endblock %}
+
+{% block content %}
+    <br>
+    {% if news_item %}
+        <h2> Полная информация о мастере {{news_item}}</h2>
+        <br>
+        <br>
+        <table>
+            <tr>
+                <th>Мастер</th>
+                <th>Рейтинг</th>
+                <th>О мастере</th>
+
+            </tr>
+            <tr>
+                <td>{{ news_item }}</td>
+                <td>{{ news_item.news_content }}</td>
+                <td>{{ news_item.news_date  }}</td>
+            </tr>
+        </table>
+        <br>
+        <br>
+
+    {% else %}
+        <h1>NOT FOUND</h1>
+    {% endif %}
+
+{% endblock %}
