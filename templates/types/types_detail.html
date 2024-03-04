@@ -7,7 +7,8 @@
 {% block content %}
     <br>
     <form method="get" action="{% url 'types-list'%}">
-        <button class="nav_button"><< к списку услуг</button>
+<!--        <button class="nav_button"><< к списку услуг</button>-->
+        <button class="button button__nav"><< к списку услуг</button>
     </form>
     <br>
     {% if type %}
@@ -31,7 +32,8 @@
             <form method="post" action="{% url 'types-list'%}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="detail_button">записаться</button>
+<!--                <button class="detail_button">записаться</button>-->
+                <button class="button button__detail">записаться</button>
              </form>
         </div>
         <br>

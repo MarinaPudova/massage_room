@@ -164,40 +164,32 @@ div.text_comment{
 }
 
 /*кнопки*/
-.add_button{
-    background:teal;
-    color: white;
-    border-radius:10px;
+
+.button{
     border:2px solid teal;
-    margin-left:3%;
-    font-size: 18px;
-    padding: 5px 10px 5px 10px;
-    font-weight:700;
+    border-radius:10px;
     cursor:pointer;
+    font-size: 18px;
+    font-weight:700;
+    padding: 5px 10px 5px 10px;
 }
 
-.nav_button{
+.button__add{
+    background:teal;
+    color: white;
+    margin-left:3%;
+}
+
+.button__nav{
     background-color: rgba(200, 240, 240, 0.9);
     color: teal;
-    border-radius:10px;
-    border:2px solid teal;
     margin-left:3%;
-    font-size: 18px;
-    padding: 5px 10px 5px 10px;
-    font-weight:700;
-    cursor:pointer;
 }
 
-.detail_button{
+.button__detail{
     background:teal;
     color: white;
-    border-radius:10px;
-    border:2px solid teal;
-    font-size: 18px;
-    padding: 5px 10px 5px 10px;
-    font-weight:700;
     margin-left:75%;
-    cursor:pointer;
 }
 
 p{

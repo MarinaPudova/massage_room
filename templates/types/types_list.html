@@ -9,7 +9,8 @@
     <h2>У нас представлено {{types.count}} типов массажа, которые Вы можете попробовать</h2>
     <br>
     <form method="get" action="{% url 'types-list'%}">
-        <button class="nav_button"><< к списку услуг</button>
+<!--        <button class="nav_button"><< к списку услуг</button>-->
+        <button class="button button__nav"><< к списку услуг</button>
     </form>
     <br>
     {% if types %}
@@ -31,7 +32,8 @@
                 </div>
 
                 <form method="get" action="{% url 'types-detail' elem.id %}">
-                    <button class="detail_button">подробнее >></button>
+<!--                    <button class="detail_button">подробнее >></button>-->
+                    <button class="button button__detail">подробнее >></button>
                 </form>
 
             </div>
