@@ -7,4 +7,4 @@ class ClientCommentForm(forms.ModelForm):
     class Meta:
         model = ClientComment
         fields = ('content', 'rating')
-        labels = {'content': 'Отзыв', 'rating': 'Оценка',}
+        labels = {'content': 'Отзыв', 'rating': 'Оценка'}

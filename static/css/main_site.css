@@ -7,6 +7,7 @@ body{
     height: 100%;
     wight: 100%;
     color: rgba(0, 70, 80);
+    font-family: 'Arial';
 }
 
 aside{
@@ -15,7 +16,6 @@ aside{
     width: 15%;
     min-height: 100vh;
     border-right: 10px solid #008080;
-    font-family: 'Arial';
 }
 
 aside .name{
@@ -55,7 +55,6 @@ aside ul li:hover, aside ul a:hover{
 }
 
 h2{
-    font-family: 'Arial';
     font-weight: bold;
     font-size: 35px;
 }
@@ -73,26 +72,19 @@ th{
 
 td{
     background:PowderBlue;
-   	font-family: 'Arial';
     font-size: 15px;
     border: 1px solid gray
 }
 
-/*.btn-group{
-    display: flex;
-    justify-content: start;
-    grid-column-gap: 10px
-}*/
+
 
 a{
-    font-family: 'Arial';
     display: inline-block
     grid-column-gap: 10px;
 }
 
 div.main_site{
     margin-left: 18%;
-    font-family: 'Arial';
 }
 
 table td img {
@@ -101,6 +93,7 @@ table td img {
     border-radius: 10%;
     display: block;
 }
+
 
 .banner{
   min-height: 300px;
@@ -141,7 +134,8 @@ div.text{
 }
 
 div.text_comment{
-    margin-left:30%;
+    margin-left:0%;
+    padding: 1px 1px 10px 1px;
 }
 
 .bold_title{
@@ -166,6 +160,7 @@ div.text_comment{
 /*кнопки*/
 
 .button{
+    white-space: nowrap; /* отсутствие переноса слов*/
     border:2px solid teal;
     border-radius:10px;
     cursor:pointer;
@@ -177,19 +172,30 @@ div.text_comment{
 .button__add{
     background:teal;
     color: white;
-    margin-left:3%;
+    /*margin-left:3%;*/
 }
 
 .button__nav{
     background-color: rgba(200, 240, 240, 0.9);
     color: teal;
-    margin-left:3%;
+    /*margin-left:3%;*/
 }
 
 .button__detail{
     background:teal;
     color: white;
     margin-left:75%;
+}
+
+.button__staff{
+    background: Moccasin;
+    color: teal;
+}
+
+.btn-group{
+    display: flex;
+    justify-content: start;
+    grid-column-gap: 20px
 }
 
 p{

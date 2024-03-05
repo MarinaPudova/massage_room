@@ -22,3 +22,9 @@ class MassageMastersDetailView(generic.DetailView):
     model = MassageMaster
     template_name = 'masters/masters_detail.html'
     context_object_name = 'master'
+
+
+class MassageMastersCommentsDetailView(generic.DetailView):
+    model = MassageMaster
+    template_name = 'comments/comment_list.html'
+    context_object_name = 'master'

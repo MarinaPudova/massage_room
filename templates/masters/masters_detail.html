@@ -7,13 +7,11 @@
 {% block content %}
     <br>
     <form method="get" action="{% url 'masters-list'%}">
-<!--        <button class="nav_button"><< к списку мастеров</button>-->
         <button class="button button__nav"><< к списку мастеров</button>
     </form>
-    <br>
+
     {% if master %}
         <h2> {{master}}</h2>
-        <br>
         <div class="banner">
             <div class="pic">
                 {% if master.master_foto %}
@@ -24,6 +22,7 @@
             </div>
             <div class="text">
                 <p><span class="bold_title">Рейтинг: </span>{{master.master_rating}}</p>
+                <p><span class="bold_title">В профессии, лет: </span>{{master.master_experience}}</p>
                 <p><span class="bold_title">О мастере:</span></p>
                 <p>{{master.about_master}}</p>
                 <p><span class="bold_title">Виды массажа:</span></p>
@@ -38,9 +37,17 @@
                 {% endif %}
             </div>
         </div>
-        <br>
         <h2>Количество отзывов: {{master.comments.count}}</h2>
-        {% include "comments/comment_detail.html"%}
+        <div class="btn-group">
+        <form method="post" action="{% url 'comment-create' master.id%}">
+            {% csrf_token %}
+            <button class="button button__add">Написать отзыв</button>
+        </form>
+
+        <form method="get" action="{% url 'master-comments' master.id %}">
+            <button class="button button__nav">читать комментарии >></button>
+        </form>
+        </div>
     {% else %}
         <h1>NOT FOUND</h1>
     {% endif %}

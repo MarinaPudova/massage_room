@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Оставить комментарий
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="btn-group">
+        <form method="get" action="{% url 'masters-detail' master.id %}">
+            <button class="button button__nav"><< вернуться к мастеру</button>
+        </form>
+
+    <form method="post" action="{% url 'comment-create' master.id%}">
+        {% csrf_token %}
+        <button class="button button__add">написать отзыв</button>
+    </form>
+        {% if not user.is_authenticated %}
+             <form method="post" action="{% url 'comment-create' master.id%}">
+            {% csrf_token %}
+            <button class="button button__add">EУРА</button>
+            </form>
+        {% endif %}
+    </div>
+
+    <br>
+        <h2>Отзывы о мастере {{master}}</h2>
+    {% if master.comments.all %}
+        {% for comment in master.comments.all %}
+            <div class="banner_comment">
+                <div class="text_comment">
+                    <p><span class="bold_title">Оценка: </span>{{comment.rating}}</p>
+                    <p><span class="bold_title">Дата: </span>{{comment.created_at|date:"d.m.Y в H:i"}}</p>
+                    <p class="line"></p>
+                    <p>{{comment.content}}</p>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -6,10 +6,27 @@
 
 {% block content %}
     <br>
-    <form method="get" action="{% url 'types-list'%}">
-<!--        <button class="nav_button"><< к списку услуг</button>-->
+
+    <div class="btn-group">
+
+        <form method="get" action="{% url 'types-list'%}">
         <button class="button button__nav"><< к списку услуг</button>
-    </form>
+        </form>
+
+        {% if user.is_staff %}
+
+            <form method="get" action="{% url 'type-update' type.id %}">
+                <button class="button button__staff">изменить новость</button>
+            </form>
+
+            <form method="post" action="{% url 'type-delete' type.id%}">
+                {% csrf_token %}
+                <button class="button button__staff">удалить новость</button>
+            </form>
+
+        {% endif %}
+
+    </div>
     <br>
     {% if type %}
         <h2>{{type}}</h2>
@@ -29,9 +46,9 @@
                 <p><span class="bold_title">Стоимость: </span>{{type.cost}} BYN.</p>
             </div>
 
-            <form method="post" action="{% url 'types-list'%}" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
+            <form method="get" action="{% url 'types-list'%}" enctype="multipart/form-data">
+<!--                {% csrf_token %}-->
+<!--                {{ form.as_p }}-->
 <!--                <button class="detail_button">записаться</button>-->
                 <button class="button button__detail">записаться</button>
              </form>

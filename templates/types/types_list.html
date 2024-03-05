@@ -8,10 +8,21 @@
     <br>
     <h2>У нас представлено {{types.count}} типов массажа, которые Вы можете попробовать</h2>
     <br>
-    <form method="get" action="{% url 'types-list'%}">
-<!--        <button class="nav_button"><< к списку услуг</button>-->
-        <button class="button button__nav"><< к списку услуг</button>
-    </form>
+
+    <div class="btn-group">
+
+        <form method="get" action="{% url 'masters-list'%}">
+            <button class="button button__nav"><< к списку мастеров</button>
+        </form>
+
+        {% if user.is_staff %}
+            <form method="post" action="{% url 'type-create'%}">
+                {% csrf_token %}
+                <button class="button button__staff">добавить направление</button>
+            </form>
+        {% endif %}
+    </div>
+
     <br>
     {% if types %}
         <br>
@@ -32,7 +43,6 @@
                 </div>
 
                 <form method="get" action="{% url 'types-detail' elem.id %}">
-<!--                    <button class="detail_button">подробнее >></button>-->
                     <button class="button button__detail">подробнее >></button>
                 </form>
 

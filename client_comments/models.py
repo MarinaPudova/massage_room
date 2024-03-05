@@ -16,3 +16,7 @@ class ClientComment(models.Model):
 
     master = models.ForeignKey(MassageMaster, on_delete=models.CASCADE, related_name='comments')
     # client = models.ForeignKey(MassageClient, related_name='comments')
+
+    class Meta:
+        ordering = ('-created_at',)
+        
