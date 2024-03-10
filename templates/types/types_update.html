@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Update
+{% endblock %}
+
+{% block content %}
+    <h2>редактирование</h2>
+    <form method="post" action="{% url 'type-update' form.instance.pk %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button button__staff" type="submit">обновить запить</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Добавление новости
+{% endblock %}
+
+{% block content %}
+    <br>
+    <h2>Добавление новости</h2>
+    <form method="post" action="{% url 'news-create'%}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button button__staff">добавить новость</button>
+    </form>
+{% endblock %}

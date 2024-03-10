@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Новость {{ news_item}}
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="btn-group">
+
+        <form method="get" action="{% url 'news-list'%}">
+            <button class="button button__nav"><< к списку новостей</button>
+        </form>
+
+        {% if user.is_staff %}
+
+            <form method="get" action="{% url 'news-update' news_item.id %}">
+                <button class="button button__staff">изменить новость</button>
+            </form>
+
+            <form method="post" action="{% url 'news-delete' news_item.id%}">
+                {% csrf_token %}
+                <button class="button button__staff">удалить новость</button>
+            </form>
+
+        {% endif %}
+
+    </div>
+    <br>
+    {% if news_item %}
+        <h2>{{news_item}}</h2>
+        <br>
+
+        <div class="banner">
+
+            <div class="text_comment">
+                <p><span class="bold_title">{{news_item.news_date}}</span></p>
+                <p class="line"></p>
+                <p>{{news_item.news_content}}</p>
+            </div>
+
+        </div>
+        <br>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Наши мастера
+{% endblock %}
+
+{% block content %}
+    <br>
+    <h2>У нас работает {{masters.count}} лучших мастеров города</h2>
+    <form method="get" action="{% url 'site_info_about'%}">
+        <button class="button button__add">записаться</button>
+    </form>
+    <br>
+
+    {% if masters %}
+        <br>
+      {% for elem in masters %}
+            <div class="banner_mini">
+
+                <div class="pic">
+                    {% if elem.master_foto %}
+                        <img class="img_mini" src="{{elem.master_foto.url}}" alt="">
+                    {% else %}
+                        <h4> No Photo</h4>
+                    {% endif %}
+                </div>
+
+                <div class="text">
+                    <p><span class="bold_title">{{elem}}</span></p>
+                    <p><span class="bold_title">Рейтинг: </span>{{elem.master_rating}}</p>
+                    <p><span class="bold_title">Опыт: </span>{{elem.master_experience}}</p>
+                    <p><span class="bold_title">Типы массажа: </span>{{elem.master_types.all|length}}</p>
+                </div>
+
+                <form method="get" action="{% url 'masters-detail' elem.id %}">
+<!--                    <button class="detail_button">подробнее >></button>-->
+                    <button class="button button__detail">подробнее >></button>
+                </form>
+
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

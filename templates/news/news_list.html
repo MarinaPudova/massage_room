@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Новости
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="btn-group">
+
+        <form method="get" action="{% url 'types-list'%}">
+            <button class="button button__nav"><< вернуться к услугам</button>
+        </form>
+
+        {% if user.is_staff %}
+            <form method="post" action="{% url 'news-create'%}">
+                {% csrf_token %}
+                <button class="button button__staff">добавить новость</button>
+            </form>
+        {% endif %}
+    </div>
+
+    <br>
+    <h2>Новости нашей студии</h2>
+    {% if news %}
+        {% for news_item in news %}
+            <div class="banner_comment">
+                <div class="text_comment">
+                    <p><span class="bold_title">{{news_item.news_title}}</span></p>
+                    <p class="line"></p>
+                    <p>{{news_item.news_date|date:"d.m.Y"}}</p>
+                    <p>{{news_item.news_content| truncatechars:30}}</p>
+                    <form method="get" action="{% url 'news-detail' news_item.id %}">
+                        <!--                    <button class="detail_button">подробнее >></button>-->
+                        <button class="button button__detail">подробнее >></button>
+                                        </form>
+
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

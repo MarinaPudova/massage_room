@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Информация
+{% endblock %}
+
+{% block content %}
+    <br>
+
+    <div class="btn-group">
+
+        <form method="get" action="{% url 'types-list'%}">
+        <button class="button button__nav"><< к списку услуг</button>
+        </form>
+
+        {% if user.is_staff %}
+
+            <form method="get" action="{% url 'type-update' type.id %}">
+                <button class="button button__staff">изменить новость</button>
+            </form>
+
+            <form method="post" action="{% url 'type-delete' type.id%}">
+                {% csrf_token %}
+                <button class="button button__staff">удалить новость</button>
+            </form>
+
+        {% endif %}
+
+    </div>
+    <br>
+    {% if type %}
+        <h2>{{type}}</h2>
+        <br>
+        <div class="banner">
+            <div class="pic">
+                {% if type.massage_cover %}
+                    <img src="{{type.massage_cover.url}}" alt="">
+                {% else %}
+                    <h4> No Photo</h4>
+                {% endif %}
+            </div>
+
+            <div class="text">
+                <p><span class="bold_title">Подробнее:</span></p>
+                <p>{{type.description}}</p>
+                <p><span class="bold_title">Стоимость: </span>{{type.cost}} BYN.</p>
+            </div>
+
+            <form method="get" action="{% url 'types-list'%}" enctype="multipart/form-data">
+<!--                {% csrf_token %}-->
+<!--                {{ form.as_p }}-->
+<!--                <button class="detail_button">записаться</button>-->
+                <button class="button button__detail">записаться</button>
+             </form>
+        </div>
+        <br>
+    {% endif %}
+{% endblock %}
