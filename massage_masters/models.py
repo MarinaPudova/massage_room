@@ -18,6 +18,9 @@ class MassageMaster(models.Model):
     master_foto = models.ImageField(upload_to='masters/', blank=True, null=True)
     master_types = models.ManyToManyField(MassageType, related_name="types", through="MasterType")
 
+    class Meta:
+        ordering = ('last_name',)
+
     def __str__(self):
         return f'{self.name} {self.last_name}'
 

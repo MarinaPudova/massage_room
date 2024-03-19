@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block title %}
-My site
+О нас
 {% endblock %}
 
 {% block content %}
@@ -29,6 +29,11 @@ My site
             <form method="get" action="{% url 'types-list'%}">
                 <button class="button button__nav">к списку услуг >></button>
             </form>
+
+             <form method="get" action="{% url 'massage-session-create'%}">
+                {% csrf_token %}
+                <button class="button button__detail">записаться</button>
+             </form>
 
         </div>
     </div>

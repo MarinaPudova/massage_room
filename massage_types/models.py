@@ -11,5 +11,8 @@ class MassageType(models.Model):
     massage_cover = models.ImageField(upload_to='types/', blank=True, null=True)
     current_status = models.BooleanField(default=True)
 
+    class Meta:
+        ordering = ('name',)
+
     def __str__(self):
         return self.name
