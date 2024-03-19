@@ -6,8 +6,8 @@
 
 {% block content %}
     <br>
-    <h2>У нас работает {{masters.count}} лучших мастеров города</h2>
-    <form method="get" action="{% url 'site_info_about'%}">
+    <h2>У нас работает {{masters.count}} лучших мастера города</h2>
+    <form method="get" action="{% url 'massage-session-create'%}">
         <button class="button button__add">записаться</button>
     </form>
     <br>

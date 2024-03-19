@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'massage_masters',
     'massage_types',
+    'massage_sessions',
     'client_comments',
     'info_news',
 ]

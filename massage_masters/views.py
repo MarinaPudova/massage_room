@@ -12,7 +12,7 @@ class MassageMastersListView(generic.ListView):
     template_name = 'masters/masters_list.html'
     context_object_name = 'masters'
     queryset = MassageMaster.objects.filter(is_working=True)
-    ordering = 'last_name'
+    # ordering = 'last_name'
 
     # def get_queryset(self):
     #     return self.queryset

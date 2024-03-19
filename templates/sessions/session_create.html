@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Запись на сеанс
+{% endblock %}
+
+{% block content %}
+    <br>
+    <h2>Записаться</h2>
+    <form class="banner_mini" method="post" action="{% url 'massage-session-create'%}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button button__staff">записаться</button>
+    </form>
+{% endblock %}
