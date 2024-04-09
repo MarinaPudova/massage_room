@@ -14,7 +14,7 @@
 
     {% if masters %}
         <br>
-      {% for elem in masters %}
+        {% for elem in masters %}
             <div class="banner_mini">
 
                 <div class="pic">
@@ -33,7 +33,6 @@
                 </div>
 
                 <form method="get" action="{% url 'masters-detail' elem.id %}">
-<!--                    <button class="detail_button">подробнее >></button>-->
                     <button class="button button__detail">подробнее >></button>
                 </form>
 

@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    <h2>обновление записи</h2>
+    <h2>обновление новости</h2>
     <form method="post" action="{% url 'news-update' form.instance.pk %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="button button__staff" type="submit">обновить запить</button>
+        <button class="button button__staff" type="submit">обновить новость</button>
     </form>
 {% endblock %}

@@ -31,9 +31,8 @@
                     <p>{{news_item.news_date|date:"d.m.Y"}}</p>
                     <p>{{news_item.news_content| truncatechars:30}}</p>
                     <form method="get" action="{% url 'news-detail' news_item.id %}">
-                        <!--                    <button class="detail_button">подробнее >></button>-->
                         <button class="button button__detail">подробнее >></button>
-                                        </form>
+                    </form>
 
                 </div>
             </div>

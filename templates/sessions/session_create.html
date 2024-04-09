@@ -10,6 +10,6 @@
     <form class="banner_mini" method="post" action="{% url 'massage-session-create'%}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="button button__staff">записаться</button>
+        <button class="button button__add">записаться</button>
     </form>
 {% endblock %}
