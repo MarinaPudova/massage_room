@@ -7,12 +7,6 @@ from massage_sessions.models import MassageSession
 
 # Create your views here.
 
-#
-# path('massage-sessions/', views.NewsListView.as_view(), name='massage-sessions-list'),
-# path('massage-session/<int:pk>', views.NewsDetailView.as_view(), name='massage-session-detail'),
-# path('massage-session/create', views.NewsCreateView.as_view(), name='massage-session-create'),
-# path('massage-session/<int:pk>/update', views.NewsUpdateView.as_view(), name='massage-session-update'),
-
 
 class MassageSessionListView(generic.ListView):
     model = MassageSession
@@ -42,22 +36,3 @@ class MassageSessionCreateView(generic.CreateView):
 
     def get_success_url(self):
         return reverse('site_info_about')
-#
-#     def form_valid(self, form):
-#         comment = form.save(commit=False)
-#         comment.master = MassageMaster.objects.get(pk=self.kwargs.get('pk'))
-#         comment.save()
-#         return super().form_valid(form)
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['master_url'] = MassageMaster.objects.get(pk=self.kwargs.get('pk'))
-#         return context
-#
-#
-# class MassageSessionCreateView(generic.CreateView):
-#     template_name = 'news/news_create.html'
-#     form_class = NewsForm
-#
-#     def get_success_url(self):
-#         return reverse('news-list')

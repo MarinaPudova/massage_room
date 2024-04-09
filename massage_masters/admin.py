@@ -11,8 +11,6 @@ class MassageMasterAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'name', 'last_name', 'about_master', 'master_experience', 'master_rating', 'is_working', 'master_foto',
     )
-    # list_display = ('id', 'name', 'last_name', 'about_master', 'master_experience', 'master_rating', 'is_working',
-    # 'master_foto', 'master_types')
 
 
 @admin.register(MasterType)

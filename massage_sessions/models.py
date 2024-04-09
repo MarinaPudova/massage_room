@@ -24,7 +24,3 @@ class MassageSession(models.Model):
     session_date = models.DateTimeField(blank=True, null=True)
     session_status = models.CharField(choices=session_types, default="processing")
     session_comment = models.TextField(max_length=200, blank=True, null=True)
-
-
-    # def __str__(self):
-    #     return self.name

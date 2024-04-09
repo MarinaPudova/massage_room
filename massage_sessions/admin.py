@@ -11,6 +11,4 @@ class MassageMasterAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'session_master', 'session_type', 'client_name',
         'client_phone', 'session_date', 'session_status', 'session_comment',
-        # 'id', 'session_master', 'session_type', 'session_client', 'session_date', 'session_status', 'session_comment',
     )
-

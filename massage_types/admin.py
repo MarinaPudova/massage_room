@@ -9,4 +9,3 @@ from massage_types.models import MassageType
 @admin.register(MassageType)
 class MassageTypeAdmin(admin.ModelAdmin):
     list_display = ('name', 'id', 'description', 'cost')
-    # list_display = ('id', 'name', 'description', 'cost', 'massage_cover')

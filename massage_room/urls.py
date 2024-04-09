@@ -27,9 +27,6 @@ urlpatterns = [
     path('', include('massage_masters.urls')),
     path('', include('client_comments.urls')),
     path('', include('massage_sessions.urls')),
-    # path('massage_types/', include('massage_types.urls')),
-    # path('massage_masters/', include('massage_masters.urls')),
-    # path('comments/', include('client_comments.urls')),
 ]
 
 if settings.DEBUG:
