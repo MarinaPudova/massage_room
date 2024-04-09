@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block title %}
-My site
+О нас
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@ My site
                 приятные воспоминания.
         </p>
         <p>Мы всегда на связи и готовы ответить на все Ваши вопросы и помочь в выборе.</p>
-        <p>Мы рады видеть каждого и поэму чай/кофе ждут Вас в нашей студии вместе с нами.</p>
+        <p>Мы рады видеть каждого и поэтому чай/кофе ждут Вас в нашей студии вместе с нами.</p>
 
         <br>
         <br>
@@ -23,11 +23,16 @@ My site
         <div class="btn-group">
 
             <form method="get" action="{% url 'news-list'%}">
-                    <button class="button button__nav">к списку новостей >></button>
+                <button class="button button__nav">к списку новостей >></button>
             </form>
 
             <form method="get" action="{% url 'types-list'%}">
                 <button class="button button__nav">к списку услуг >></button>
+            </form>
+
+            <form method="get" action="{% url 'massage-session-create'%}">
+                {% csrf_token %}
+                <button class="button button__detail">записаться</button>
             </form>
 
         </div>

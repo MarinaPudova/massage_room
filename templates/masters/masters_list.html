@@ -6,15 +6,15 @@
 
 {% block content %}
     <br>
-    <h2>У нас работает {{masters.count}} лучших мастеров города</h2>
-    <form method="get" action="{% url 'site_info_about'%}">
+    <h2>У нас работает {{masters.count}} лучших мастера города</h2>
+    <form method="get" action="{% url 'massage-session-create'%}">
         <button class="button button__add">записаться</button>
     </form>
     <br>
 
     {% if masters %}
         <br>
-      {% for elem in masters %}
+        {% for elem in masters %}
             <div class="banner_mini">
 
                 <div class="pic">
@@ -33,7 +33,6 @@
                 </div>
 
                 <form method="get" action="{% url 'masters-detail' elem.id %}">
-<!--                    <button class="detail_button">подробнее >></button>-->
                     <button class="button button__detail">подробнее >></button>
                 </form>
 

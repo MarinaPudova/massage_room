@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block title %}
-Информация
+{{ type}}
 {% endblock %}
 
 {% block content %}
@@ -16,12 +16,12 @@
         {% if user.is_staff %}
 
             <form method="get" action="{% url 'type-update' type.id %}">
-                <button class="button button__staff">изменить новость</button>
+                <button class="button button__staff">изменить направление</button>
             </form>
 
             <form method="post" action="{% url 'type-delete' type.id%}">
                 {% csrf_token %}
-                <button class="button button__staff">удалить новость</button>
+                <button class="button button__staff">удалить направление</button>
             </form>
 
         {% endif %}
@@ -46,10 +46,8 @@
                 <p><span class="bold_title">Стоимость: </span>{{type.cost}} BYN.</p>
             </div>
 
-            <form method="get" action="{% url 'types-list'%}" enctype="multipart/form-data">
-<!--                {% csrf_token %}-->
-<!--                {{ form.as_p }}-->
-<!--                <button class="detail_button">записаться</button>-->
+            <form method="get" action="{% url 'massage-session-create'%}">
+                {% csrf_token %}
                 <button class="button button__detail">записаться</button>
              </form>
         </div>
